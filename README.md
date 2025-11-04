@@ -59,8 +59,7 @@ Projeto desenvolvido por Katiele como parte do desafio Soirtec. 📌 Meu GitHub
 
 ---
 
-✨ Esse modelo já deixa seu repositório bem apresentável.  
-👉 Quer que eu também monte um **`requirements.txt` básico** (com Django e dependências comuns) para você já subir junto com o README?
+
 
 
 
