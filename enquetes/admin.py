@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Question, Choice
+from .models import Enquete, Choice
 
-admin.site.register(Question)
+admin.site.register(Enquete)
 admin.site.register(Choice)

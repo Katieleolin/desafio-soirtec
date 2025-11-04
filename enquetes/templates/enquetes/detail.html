@@ -1,0 +1,24 @@
+{% extends "enquetes/base.html" %}
+
+{% block content %}
+  <h1 class="mb-3">{{ enquete.pergunta }}</h1>
+
+  {% if error_message %}
+    <div class="alert alert-danger">{{ error_message }}</div>
+  {% endif %}
+
+  <form action="{% url 'enquetes:vote' enquete.id %}" method="post" class="mb-3">
+    {% csrf_token %}
+    <div class="list-group">
+      {% for choice in enquete.choice_set.all %}
+        <label class="list-group-item">
+          <input type="radio" name="choice" value="{{ choice.id }}" class="form-check-input me-1">
+          {{ choice.texto }}
+        </label>
+      {% endfor %}
+    </div>
+    <button type="submit" class="btn btn-success mt-3">Votar</button>
+  </form>
+
+  <a href="{% url 'enquetes:index' %}" class="btn btn-secondary">Retornar a Pagina</a>
+{% endblock %}

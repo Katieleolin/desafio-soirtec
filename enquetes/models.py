@@ -1,24 +1,17 @@
-
 from django.db import models
 
-class Question(models.Model):
-    question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
+class Enquete(models.Model):
+    pergunta = models.CharField(max_length=200)
+    data_pub = models.DateTimeField("data de publicação")
 
     def __str__(self):
-        return self.question_text
+        return self.pergunta
 
-    def total_votes(self):
-        return sum(choice.votes for choice in self.choice_set.all())
-
-    def has_votes(self):
-        return any(choice.votes > 0 for choice in self.choice_set.all())
 
 class Choice(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
+    enquete = models.ForeignKey(Enquete, on_delete=models.CASCADE)
+    texto = models.CharField(max_length=200)
+    votos = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.choice_text
-
+        return self.texto

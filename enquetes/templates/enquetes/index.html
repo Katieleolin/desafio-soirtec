@@ -1,0 +1,16 @@
+{% extends "enquetes/base.html" %}
+
+{% block content %}
+  <h1 class="mb-3">Minhas Enquetes</h1>
+  <ul class="list-group">
+    {% for enquete in enquetes %}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        {{ enquete.pergunta }}
+        <span>
+          <a href="{% url 'enquetes:detail' enquete.id %}" class="btn btn-sm btn-success">Votar</a>
+          <a href="{% url 'enquetes:results' enquete.id %}" class="btn btn-sm btn-info">Resultados</a>
+        </span>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
